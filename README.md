@@ -55,7 +55,6 @@ San Francisco's food truck open dataset is [located here](https://data.sfgov.org
 
 
 ## Out of Scope
-1. Input validations on Longitude, Latitude, RadiusInMeters and optional SearchFoodItem
 1. Configuration keys in APIs are not stored/accessed securely using solutions like Azure Key-Vault.
 1. Mocking of Cosmos Container and Cosmos Client is not done in Foodtrucks integration test scripts.
 1. Geo-redundant application deployment process is not followed.
