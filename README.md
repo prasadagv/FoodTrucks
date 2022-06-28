@@ -196,8 +196,8 @@ Below are steps to setup Cosmos DB and host the APIs instead of using existing a
 1. In Azure App Services, deploy SyncFoodTrucksData API
 1. Define below configurations in SyncFoodTrucksData app service
   
-    * CosmosDBSettings__accountEndPoint: <URI value from keys of the newly created Cosmos DB account>
-    * CosmosDBSettings__accountKey: <Primary Key value from keys of the newly created Cosmos DB account>
+    * CosmosDBSettings__accountEndPoint: --URI value from keys of the newly created Cosmos DB account--
+    * CosmosDBSettings__accountKey: --Primary Key value from keys of the newly created Cosmos DB account--
     * CosmosDBSettings__containerName: FoodFacility
     * CosmosDBSettings__databaseName: FoodTrucksDB
     
@@ -220,7 +220,7 @@ Below are steps to setup Cosmos DB and host the APIs instead of using existing a
   
     * JwtToken__Audience: FoodTrucksWebAPI
     * JwtToken__Issuer:  FoodTrucksWebAPI
-    * JwtToken__Key: 70A28AFA-3BCD-4940-84DE-FB5821EE00D4
+    * JwtToken__Key: --KeyValue--
     
 1. Browse to the swagger UI of new Authentication api in browser (append /swagger at the end of URL) and execute "/api/v1/login" with below body or send POST request with below body to https://<NewURL>.azurewebsites.net/api/v1/login if you are using tools like postman and make sure token is received as reponse.
 
@@ -240,13 +240,13 @@ Below are steps to setup Cosmos DB and host the APIs instead of using existing a
 1. In Azure App Services, deploy Foodtrucks API
 1. Define below configurations in Foodtrucks app service
   
-    * CosmosDBSettings__accountEndPoint: <URI value from keys of the newly created Cosmos DB account>
-    * CosmosDBSettings__accountKey: <Primary Key value from keys of the newly created Cosmos DB account>
+    * CosmosDBSettings__accountEndPoint: --URI value from keys of the newly created Cosmos DB account--
+    * CosmosDBSettings__accountKey: --Primary Key value from keys of the newly created Cosmos DB account--
     * CosmosDBSettings__containerName: FoodFacility
     * CosmosDBSettings__databaseName: FoodTrucksDB
     * JwtToken__Audience: FoodTrucksWebAPI
     * JwtToken__Issuer:  FoodTrucksWebAPI
-    * JwtToken__Key: 70A28AFA-3BCD-4940-84DE-FB5821EE00D4
+    * JwtToken__Key: --KeyValue--
     
 1. Browse to the swagger UI of new Foodtrucks api in browser (append /swagger at the end of URL) and execute "/api/v1/getFoodTrucks" with below values or send POST request with below URLs if you are using tools like postman and make sure list of food trucks are received as reponse.
 
