@@ -3,6 +3,9 @@ using System.Diagnostics;
 using FoodTrucks.Domain.Contracts;
 using FoodTrucks.Domain.Models;
 using FoodTrucks.Domain.Helpers;
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
+using FoodTrucks.Domain.Authorisation;
 
 namespace FoodTrucks.WebAPI.Controllers
 {
@@ -24,6 +27,7 @@ namespace FoodTrucks.WebAPI.Controllers
         [HttpGet("v1/getFoodTrucks")]
         [ProducesResponseType(typeof(List<FoodTrucksResponseModel>), StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
+        [AuthoriseAdministratorViaJwtBearerTokenAttribute]
         public async Task<IActionResult> GetFoodTrucks([FromQuery] FoodTrucksRequestModel request)
         {
             var stopwatch = Stopwatch.StartNew();

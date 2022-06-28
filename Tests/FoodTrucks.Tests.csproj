@@ -27,4 +27,10 @@
     <ProjectReference Include="..\WebAPI\FoodTrucks.WebAPI.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Content Update="appsettings.test.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+
 </Project>

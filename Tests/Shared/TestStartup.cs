@@ -3,8 +3,11 @@ using FoodTrucks.DataAccess.Repositories;
 using FoodTrucks.Domain.Contracts;
 using FoodTrucks.Domain.Services;
 using FoodTrucks.WebAPI.Controllers;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.IdentityModel.Tokens;
 using Moq;
 using System.Reflection;
+using System.Text;
 
 namespace FoodTrucks.Tests.Shared
 {
@@ -36,16 +39,36 @@ namespace FoodTrucks.Tests.Shared
 
                 return new FoodTrucksRepository(accountEndPoint, accountKey, databaseName, containerName);
             });
+
+            services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme).AddJwtBearer(options =>
+            {
+                options.TokenValidationParameters = new TokenValidationParameters()
+                {
+                    ValidateActor = true,
+                    ValidateAudience = true,
+                    ValidateLifetime = true,
+                    ValidateIssuerSigningKey = true,
+                    ValidIssuer = _configuration.GetSection("JwtToken").GetValue<string>("Issuer"),
+                    ValidAudience = _configuration.GetSection("JwtToken").GetValue<string>("Audience"),
+                    IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_configuration.GetSection("JwtToken").GetValue<string>("Key")))
+                };
+            });
+            services.AddAuthorization();
         }
 
         public void Configure(IApplicationBuilder app)
         {
             app.UseRouting();
 
+            app.UseAuthorization();
+
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllers();
             });
+
+            app.UseAuthentication();
+
         }
     }
 }
