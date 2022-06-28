@@ -7,16 +7,19 @@ There are 3 APIs for this solution.
 1. SyncFoodtrucksData: This API is used to sync the data from "San Francisco's food truck open dataset" to the Cosmos DB.
 
     Hosted at: https://venkat-syncfoodtrucksdata.azurewebsites.net/swagger/index.html
+    
     Githut repo: https://github.com/prasadagv/SyncFoodTrucksData
     
 1. Authentication: API to generate JWT token based on provided credentials.
 
     Hosted at: https://venkat-authentication.azurewebsites.net/swagger/index.html
+    
     Github repo: https://github.com/prasadagv/Authentication
     
 1. Foodtrucks: **Actual API for this problem** to get the list of food trucks based on provided Longitude, Latitude, RadiusInMeters and optional SearchFoodItem.
 
     Hosted at: https://venkat-foodtrucks.azurewebsites.net/swagger/index.html
+    
     Github repo: https://github.com/prasadagv/FoodTrucks
 
 
