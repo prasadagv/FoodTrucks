@@ -14,6 +14,12 @@ namespace FoodTrucks.Domain.Services
             _repository = repository;
         }
 
+        /// <summary>
+        /// Domain layer which accepts the user input and calls repository layer
+        /// </summary>
+        /// <param name="FoodTrucksRequestModel">A Model to pass Longitude, Latitude, 
+        /// RadiusInMeters and SearchFoodItem</param>
+        /// <returns>List of FoodTrucks</returns>
         public async Task<List<FoodTrucksResponseModel>> GetFoodTrucksAsync(FoodTrucksRequestModel request)
         {
             var foodFacilities = await _repository.GetFoodTrucksNoTrackingAsync(new FoodTrucksRequest() 

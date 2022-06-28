@@ -12,6 +12,8 @@ namespace FoodTrucks.WebAPI.Controllers
     [ApiController]
     [Route("api")]
     [ProducesResponseType(StatusCodes.Status500InternalServerError)]
+    [ProducesResponseType(StatusCodes.Status401Unauthorized)]
+    [ProducesResponseType(StatusCodes.Status403Forbidden)]
     public class FoodTrucksController : Controller
     {
         private readonly ILogger<FoodTrucksController> _logger;
@@ -23,7 +25,13 @@ namespace FoodTrucks.WebAPI.Controllers
             _logger = logger;
         }
 
-
+        /// <summary>
+        /// Get FoodTrucks data based on Longitude, Latitude, RadiusInMeters
+        /// and optional SearchFoodItem to filter the data.
+        /// </summary>
+        /// <param name="FoodTrucksRequestModel">A Model to pass Longitude, Latitude, 
+        /// RadiusInMeters and SearchFoodItem</param>
+        /// <returns>List of Food Trucks</returns>
         [HttpGet("v1/getFoodTrucks")]
         [ProducesResponseType(typeof(List<FoodTrucksResponseModel>), StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
