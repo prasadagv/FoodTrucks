@@ -50,7 +50,7 @@ namespace FoodTrucks.Domain.Helpers
         {
             bool isSuccess = true;
 
-            if (radiusInMeters > 100000) // in meters
+            if (radiusInMeters < 1 || radiusInMeters > 100000) // in meters
             {
                 isSuccess = false;
             }
