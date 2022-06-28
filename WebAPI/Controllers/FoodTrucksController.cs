@@ -48,6 +48,12 @@ namespace FoodTrucks.WebAPI.Controllers
                 return BadRequest(ErrorMessages.CoordinatesValidateFailure);
             }
 
+            // Validate radius and send BadRequest (400) if validation fails
+            if (!CommonHelper.ValidateRadius(request.RadiusInMeters))
+            {
+                return BadRequest(ErrorMessages.RadiusValidateFailure);
+            }
+
             // Call Domain layer for FoodTrucks
             var resp = await _service.GetFoodTrucksAsync(request);
 

@@ -40,5 +40,22 @@ namespace FoodTrucks.Domain.Helpers
 
             return isSuccess;
         }
+
+        /// <summary>
+        /// Validate the Radius
+        /// </summary>
+        /// <param name="range">long value</param>
+        /// <exception cref="bool">return true if validation is success else false</exception>
+        public static bool ValidateRadius(long radiusInMeters)
+        {
+            bool isSuccess = true;
+
+            if (radiusInMeters > 100000) // in meters
+            {
+                isSuccess = false;
+            }
+
+            return isSuccess;
+        }
     }
 }
