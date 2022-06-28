@@ -6,6 +6,7 @@ using FoodTrucks.Domain.Helpers;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using FoodTrucks.Domain.Authorisation;
+using FoodTrucks.Domain.Constants;
 
 namespace FoodTrucks.WebAPI.Controllers
 {
@@ -35,10 +36,17 @@ namespace FoodTrucks.WebAPI.Controllers
         [HttpGet("v1/getFoodTrucks")]
         [ProducesResponseType(typeof(List<FoodTrucksResponseModel>), StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
         [AuthoriseAdministratorViaJwtBearerTokenAttribute]
         public async Task<IActionResult> GetFoodTrucks([FromQuery] FoodTrucksRequestModel request)
         {
             var stopwatch = Stopwatch.StartNew();
+
+            // Validate Latitude & Longitude and send BadRequest (400) if validation fails
+            if (!CommonHelper.ValidateCoordinates(request))
+            {
+                return BadRequest(ErrorMessages.CoordinatesValidateFailure);
+            }
 
             // Call Domain layer for FoodTrucks
             var resp = await _service.GetFoodTrucksAsync(request);
