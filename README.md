@@ -265,3 +265,4 @@ Send GET request with optional SearchFoodItem: https://venkat-foodtrucks.azurewe
 * :link: [Differences between NoSQL and relational databases](https://docs.microsoft.com/en-us/azure/cosmos-db/relational-nosql)
 * :link: [EF Core Azure Cosmos DB Provider](https://docs.microsoft.com/en-us/ef/core/providers/cosmos/?tabs=dotnet-core-cli)
 * :link: [Cosmos DB Tutorial](https://docs.microsoft.com/en-us/azure/cosmos-db/sql/sql-api-get-started)
+* :link: [Pending Items](/PendingItems.md)
