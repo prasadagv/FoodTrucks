@@ -5,7 +5,7 @@
 1. Didn't use any digital certificates to validate the client.
 1. API Gateway or Azure AD is not integrated into the solution
 1. CI/CD is not implemented
-1. Need to mock the Cosmos Container and Cosmos Client in repository of foodtrucks api.
+1. In unit test scripts (FoodTrucks.Test project) need to mock the Cosmos Container and Cosmos Client in repository of foodtrucks api.
 1. Non-functional testing (Performance, Load, UI..) is not done
 1. NLog is implemented but configuations are not done to write the logs to blob storage or external source
 1. Proper/enrich of error messages are not used and only a standard messages are sent as response.
