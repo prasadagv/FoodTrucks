@@ -1,6 +1,6 @@
 # FoodTrucks
 
-FoodTrucks APIs find the near food trucks based on provided coordinates.
+FoodTrucks APIs finds the food trucks near to the provided location.
 
 There are 3 APIs for this solution.
 
