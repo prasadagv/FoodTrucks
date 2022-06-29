@@ -132,7 +132,7 @@ Normal Users / Passwords: user1 / password1
 
     Hosted at: https://venkat-foodtrucks.azurewebsites.net/swagger/index.html
 
-Add JWT bearer token to the header.  Please note only Administrator (admin1 or admin2) users can't access this API.
+Add JWT bearer token to the header.  Please note only Administrator (admin1 or admin2) users can access this API.
 
 Send GET request without optional SearchFoodItem: https://venkat-foodtrucks.azurewebsites.net/api/v1/getFoodTrucks?longitude=-122.41&latitude=37.81&radiusInMeters=2000
 
